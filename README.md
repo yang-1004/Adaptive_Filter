@@ -90,7 +90,7 @@ The raw KPFM measurements were acquired using Park Systems XE7 and NX10 instrume
 
 The dataset is hosted on Zenodo:
 
-> **Dataset DOI:** [10.5281/zenodo.XXXXXXX](https://zenodo.org/records/XXXXXXX)
+> **Dataset DOI:** [10.5281/zenodo.19588748](https://zenodo.org/records/19588748)
 
 The Zenodo archive contains:
 
