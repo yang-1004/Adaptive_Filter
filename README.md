@@ -3,7 +3,7 @@
 Official implementation of:
 
 > D. Yang, J. Kim, Y. Lee, B. Han, J. Lee and M. Lee, "Adaptive Filtering on KPFM Data: A Deep Neural Network Approach,"  
-> *Machine Learning: Science and Technology* (IOP Publishing, 2025), submitted.
+> *Machine Learning: Science and Technology* (IOP Publishing, 2026), submitted.
 
 ## Overview
 
@@ -177,11 +177,11 @@ The composite loss function comprises five terms with fixed weighting coefficien
 ## Citation
 
 ```bibtex
-@article{yang2025adaptive,
+@article{yang2026adaptive,
   title   = {Adaptive Filtering on KPFM Data: A Deep Neural Network Approach},
   author  = {Yang, Dongin and Kim, Jungmin and Lee, Youngchel and Han, Byungchae and Lee, Jeongwan and Lee, Minbaek},
   journal = {Machine Learning: Science and Technology},
-  year    = {2025},
+  year    = {2026},
   note    = {submitted}
 }
 ```
