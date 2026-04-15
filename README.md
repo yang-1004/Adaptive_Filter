@@ -1,6 +1,9 @@
 # Adaptive Filtering on KPFM Data: A Deep Neural Network Approach
 
-Official implementation for a paper submitted to *Machine Learning: Science and Technology* (IOP Publishing).
+Official implementation of:
+
+> D. Yang, J. Kim, Y. Lee, B. Han, J. Lee and M. Lee, "Adaptive Filtering on KPFM Data: A Deep Neural Network Approach,"  
+> *Machine Learning: Science and Technology* (IOP Publishing, 2025), submitted.
 
 ## Overview
 
@@ -33,25 +36,36 @@ pip install -r requirements.txt
 
 ## Setup
 
-After cloning the repository, extract the zip archives to create the required directory structure:
+**Step 1.** Clone this repository:
+
+```bash
+git clone https://github.com/yang-1004/Adaptive_Filter.git
+cd Adaptive_Filter
+```
+
+**Step 2.** Extract the zip archives included in the repository:
 
 ```bash
 unzip pretrained.zip -d pretrained/
 unzip test_images.zip -d examples/
 ```
 
-For training from scratch, also extract the training data:
+**Step 3 (for training only).** Download the training dataset from Zenodo and extract it:
 
 ```bash
+# Download data.zip from Zenodo (DOI: 10.5281/zenodo.XXXXXXX)
+# https://zenodo.org/records/XXXXXXX
 unzip data.zip -d data/raw/
 ```
 
-The resulting structure should be:
+The resulting directory structure should be:
 
 ```
 ├── phase2_feature_extraction.py   # Feature extraction & PSD analysis
 ├── phase3_training.py             # Model training
 ├── test_evaluation.py             # Evaluation with pre-trained models
+├── pretrained.zip                 # Pre-trained model weights (extract before use)
+├── test_images.zip                # Example test images (extract before use)
 ├── pretrained/                    # (from pretrained.zip)
 │   ├── best_model_dynamic_wiener.pt
 │   ├── best_model_dynamic_gaussian.pt
@@ -61,7 +75,7 @@ The resulting structure should be:
 ├── examples/                      # (from test_images.zip)
 │   ├── highnoise.tiff
 │   └── lownoise.tiff
-├── data/raw/                      # (from data.zip, for training only)
+├── data/raw/                      # (from Zenodo data.zip, for training only)
 │   ├── 00001.tiff
 │   ├── ...
 │   └── 13218.tiff
@@ -72,10 +86,19 @@ The resulting structure should be:
 
 ## Data
 
-The raw KPFM measurements were acquired using Park Systems instruments, which store data in a proprietary TIFF format. These instrument-specific files have been converted to standard single-channel float32 TIFF for general compatibility, and only images that passed the initial quality classification (Phase 1) are provided. The code in this repository starts from Phase 2 (feature extraction), as the provided dataset has already undergone Phase 1 screening.
+The raw KPFM measurements were acquired using Park Systems XE7 and NX10 instruments, which store data in a proprietary TIFF format. These instrument-specific files have been converted to standard single-channel float32 TIFF for general compatibility, and only images that passed the initial quality classification (Phase 1) are provided. The code in this repository starts from Phase 2 (feature extraction), as the provided dataset has already undergone Phase 1 screening.
+
+The dataset is hosted on Zenodo:
+
+> **Dataset DOI:** [10.5281/zenodo.XXXXXXX](https://zenodo.org/records/XXXXXXX)
+
+The Zenodo archive contains:
 
 - **`data.zip`** — 13,218 training images (256×256, single-channel float32 TIFF), sequentially named (`00001.tiff` to `13218.tiff`).
-- **`test_images.zip`** — Two test images (`highnoise.tiff`, `lownoise.tiff`) acquired from the same sample under different measurement conditions.
+
+The following files are included directly in this repository:
+
+- **`test_images.zip`** — Two test images (`highnoise.tiff`, `lownoise.tiff`) acquired from the same MoS₂/SiO₂ sample under different measurement conditions.
 - **`pretrained.zip`** — Pre-trained model weights for all five filter types.
 
 All image files are standard single-channel float32 TIFF, readable by any image processing library (`tifffile`, PIL, OpenCV, etc.).
@@ -151,6 +174,27 @@ The composite loss function comprises five terms with fixed weighting coefficien
 | Medium | 0.1 | 7×7 Gaussian |
 | Strong | 1.0 | 7×7 Gaussian |
 
+## Citation
+
+```bibtex
+@article{yang2025adaptive,
+  title   = {Adaptive Filtering on KPFM Data: A Deep Neural Network Approach},
+  author  = {Yang, Dongin and Kim, Jungmin and Lee, Youngchel and Han, Byungchae and Lee, Jeongwan and Lee, Minbaek},
+  journal = {Machine Learning: Science and Technology},
+  year    = {2025},
+  note    = {submitted}
+}
+```
+
+## Acknowledgments
+
+This work was supported by the National Research Foundation of Korea (NRF) grant funded by the Korea government (MSIT) (RS-2024-00350211, RS-2023-00207828).
+
 ## License
 
 This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
+
+## Contact
+
+Dongin Yang — SNDL Lab, Department of Physics, Inha University  
+Corresponding author: Minbaek Lee (mlee@inha.ac.kr)
