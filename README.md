@@ -53,8 +53,7 @@ unzip test_images.zip -d examples/
 **Step 3 (for training only).** Download the training dataset from Zenodo and extract it:
 
 ```bash
-# Download data.zip from Zenodo (DOI: 10.5281/zenodo.XXXXXXX)
-# https://zenodo.org/records/XXXXXXX
+# Download data.zip from Zenodo (DOI: 10.5281/zenodo.19588748)
 unzip data.zip -d data/raw/
 ```
 
